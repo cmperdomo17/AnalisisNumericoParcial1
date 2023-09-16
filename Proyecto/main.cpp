@@ -73,6 +73,7 @@ void ejercicio_1()
 {
     int metodo;
     
+	// [REVISAR LA FUNCION]
     std::string fstr = "(1 / n) * sqrt(i) * (pow(h * (b + m * h), 5.0 / 3.0) / pow(b + 2 * h * sqrt(1 + m * m), 2.0 / 3.0))";
 
     cout << "\n1. Ejercicio 1" << endl;
@@ -107,18 +108,18 @@ void ejercicio_1()
 
 void ejercicio_2()
 {
-	// erp
-	string fstr("x^8 - x^7 + 35x^5 + 426x^4 - 170x^3 - 1827x^2 - 255x");
-	string dfstr("8x^7 - 7x^6 + 175x^4 + 1704x^3 - 510x^2 - 3654x - 255");
-	string d2fstr("56x^6 - 42x^5 + 700x^3 + 5112x^2 - 1020x - 3654");
+	string fstr("x^8 - x^7 + 35x^5 + 426x^4 - 170x^3 - 1827x^2 - 255x"); // Funcion
+	string dfstr("8x^7 - 7x^6 + 175x^4 + 1704x^3 - 510x^2 - 3654x - 255"); // Derivada
+	string d2fstr("56x^6 - 42x^5 + 700x^3 + 5112x^2 - 1020x - 3654"); // Segunda derivada
 
 	double erp = 1e-8f;
 	double n = 20;
 
+	// [REVISAR INTERVALOS]
 	// Newton
 	// Raiz 1
 	double p0 = -2.1f;
-	// Raiz 2 (Falla)
+	// Raiz 2 
 	double p01 = 0.1f;
 	// Raiz 3
 	double p02 = 1.5f;
@@ -127,7 +128,7 @@ void ejercicio_2()
 
 	// Raiz 1
 	double p0ng = -2.1f;
-	// Raiz 2 (No falla)
+	// Raiz 2 
 	double p0ng1 = 0.5f;
 	// Raiz 3
 	double p0ng2 = 1.5f;
@@ -138,7 +139,7 @@ void ejercicio_2()
 	double x1 = -2.1;
 	double x0 = -2.0f;
 
-	// Raiz 2 (falla)
+	// Raiz 2 
 	double x2_1 = 0.8f;
 	double x1_1 = 1.0f;
 	double x0_1 = 1.3f;
@@ -166,11 +167,11 @@ void ejercicio_2()
 
 void imprimir_aproximaciones(vector<pair<string, solucion>> soluciones, string funcstr)
 {
-	cout << "\nAproximaciones para:" << funcstr << endl;
+	cout << "\nAproximaciones para: " << funcstr << endl;
 
 	for (auto &sol : soluciones)
 	{
-		cout << "Raiz de " << funcstr << " Usando el metodo de " << sol.first << endl;
+		cout << "\nRaiz de " << funcstr << " \nUsando el metodo de " << sol.first << endl;
 		sol.second.imprimir();
 
 		cout << "\n=================================================================" << endl;
