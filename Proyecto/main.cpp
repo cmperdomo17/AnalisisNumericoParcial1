@@ -73,8 +73,6 @@ void ejercicio_1()
 {
     int metodo;
     
-	// [REVISAR LA FUNCION]
-	
 	string constante = "(sqrt(5)/sqrt(2))";
 	string numerador = "((x*(10+x))^5)^(1.0/3.0)";
 	string denominador = "((10 + 2*x*sqrt(2))^2)^(1.0/3.0)";

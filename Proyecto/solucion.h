@@ -65,7 +65,7 @@ namespace raices { // Agrupa diferentes definiciones de clases, funciones y vari
 			if (std::isnan(raiz)) {
 				cout << "\nNo se pudo obtener la raiz con los datos dados"<<endl;
 			}else {
-				cout << "\nLa raiz es: " << raiz <<endl;
+				cout << "\nLa raiz es: " << setprecision(10) << raiz << endl;
 			}
 			if(aproximaciones.size() > 0){
 				cout << "\nAproximaciones: "<< endl;
