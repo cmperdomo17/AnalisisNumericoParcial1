@@ -74,8 +74,12 @@ void ejercicio_1()
     int metodo;
     
 	// [REVISAR LA FUNCION]
-    std::string fstr = "(1 / n) * sqrt(i) * (pow(h * (b + m * h), 5.0 / 3.0) / pow(b + 2 * h * sqrt(1 + m * m), 2.0 / 3.0))";
-
+	
+	string constante = "(sqrt(5)/sqrt(2))";
+	string numerador = "((x*(10+x))^5)^(1.0/3.0)";
+	string denominador = "((10 + 2*x*sqrt(2))^2)^(1.0/3.0)";
+    string fstr = constante+"*(("+numerador+")/("+denominador+")) - 101.08";
+	
     cout << "\n1. Ejercicio 1" << endl;
     cout << "\nFuncion: " << fstr << endl;
     cout << "\nIngrese por que metodo desea hallar la raiz: \n\n";
@@ -180,7 +184,7 @@ void imprimir_aproximaciones(vector<pair<string, solucion>> soluciones, string f
 
 void metodo_biseccion(string fstr) {
 	
-	double xa, xb, tol;
+	double xa, xb;
 	int n;
 	
 	cout << "\nFuncion a evaluar: " << fstr << endl;
@@ -188,8 +192,10 @@ void metodo_biseccion(string fstr) {
 	cin >> xa;
 	cout << "\nIngrese el valor superior del intervalo: ";
 	cin >> xb;
+	/*
 	cout << "\nIngrese la tolerancia (en porcentaje): ";
 	cin >> tol;
+	*/
 	cout << "\nIngrese el maximo numero de iteraciones: ";
 	cin >> n;
 	//Crear una instancia de biseccion pasando 
@@ -197,7 +203,7 @@ void metodo_biseccion(string fstr) {
 	
 	biseccion bis(fstr);
 	
-	solucion sol = bis.calcular(xa, xb, tol, n);
+	solucion sol = bis.calcular(xa, xb,1e-6, n);
 	
 	sol.imprimir();
 }
@@ -205,7 +211,7 @@ void metodo_biseccion(string fstr) {
 
 void metodo_reglaFalsa(string fstr) {
 	
-	double xi, xs, tol;
+	double xi, xs;
 	int n;
 	
 	cout << "\nFuncion a evaluar: " << fstr << endl;
@@ -213,8 +219,10 @@ void metodo_reglaFalsa(string fstr) {
 	cin >> xi;
 	cout << "\nIngrese el valor superior del intervalo: ";
 	cin >> xs;
+	/*
 	cout << "\nIngrese la tolerancia (en porcentaje): ";
 	cin >> tol;
+	*/
 	cout << "\nIngrese el maximo numero de iteraciones: ";
 	cin >> n;
 	//Crear una instancia de regla falsa pasando 
@@ -222,22 +230,24 @@ void metodo_reglaFalsa(string fstr) {
 	
 	reglafalsa rf(fstr);
 	
-	solucion sol = rf.calcular(xi,xs,tol,n);
+	solucion sol = rf.calcular(xi,xs,1e-6,n);
 	
 	sol.imprimir();
 	
 }
 
 void metodo_secante(string fstr){
-	double x0, x1, tol;
+	double x0, x1;
 	int n;
 
 	cout << "\nIngrese el valor de x0: ";
 	cin >> x0;
 	cout << "\nIngrese el valor de x1: ";
 	cin >> x1;
+	/*
 	cout << "\nIngrese la tolerancia (en porcentaje): ";
 	cin >> tol;
+	*/
 	cout << "\nIngrese el maximo numero de iteraciones: ";
 	cin >> n;
 	//Crear una instancia de secante pasando 
@@ -245,7 +255,7 @@ void metodo_secante(string fstr){
 	
 	secante sec(fstr);
 	
-	solucion sol = sec.calcular(x0,x1,tol,n);
+	solucion sol = sec.calcular(x0,x1,1e-6,n);
 	
 	sol.imprimir();
 }
