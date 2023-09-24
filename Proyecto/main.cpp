@@ -120,42 +120,42 @@ void ejercicio_2()
 
 	// Newton
 
-	// Raíz 1 = -1.900
-	double nrP0 = -2.1f;    
+	// Raíz 1 = -1.90012
+	double nrP0 = -1.9f;  
 	// Raíz 2 = -0.1421
-	double nrP1 = 0.1f;   
+	double nrP1 = 0.14f;   
 	// Raíz 3 = 2.1249
-	double nrP2 = 2.0f;    
+	double nrP2 = 2.1252f;    
 	// Raíz 4 = 0
 	double nrP3 = 0.0f;
 
 	// Newton generalizado
 
 	// Raíz 1 = -1.900
-	double nrgP0 = -2.1f;  
+	double nrgP0 = -1.9f;  
 	// Raíz 2 = -0.1421
-	double nrgP1 = 0.0f;  
+	double nrgP1 = -0.14f;  
 	// Raíz 3 = 2.1249
-	double nrgP2 = 2.1f;  
+	double nrgP2 = 2.1252f;  
 	// Raíz 4 = 0
 	double nrgP3 = 0.0f;
 
 	// Método de Muller
 
 	// Raíz 1 = -1.900
-	double m1_x0 = -1.88;     // Punto más cercano a la raíz
+	double m1_x0 = -1.89;     // Punto más cercano a la raíz
 	double m1_x1 = -1.90;     // Punto medio
-	double m1_x2 = -1.95;     // Punto más alejado
+	double m1_x2 = -1.91;     // Punto más alejado
 
 	// Raíz 2 = -0.1421
 	double m2_x0 = -0.13;   // Punto más cercano a la raíz
 	double m2_x1 = -0.14;   // Punto medio
-	double m2_x2 = -0.15;   // Punto más alejado
+	double m2_x2 = -0.143;   // Punto más alejado
 
 	// Raíz 3 = 2.1249
-	double m3_x0 = 2.13;    // Punto más cercano a la raíz
+	double m3_x0 = 2.1;    // Punto más cercano a la raíz
 	double m3_x1 = 2.1252;  // Punto medio
-	double m3_x2 = 2.12;   // Punto más alejado
+	double m3_x2 = 2.13;   // Punto más alejado
 
 	// Raíz 4 = 0
 	double m4_x0 = 0.1;     // Punto más cercano a la raíz
@@ -163,27 +163,27 @@ void ejercicio_2()
 	double m4_x2 = -0.1;    // Punto más alejado
 
 	vector<pair<string, solucion>> soluciones = {
-		{make_pair("\nNewton-Raphson desde p0=" + to_string(nrP0), newton_raphson(fstr, dfstr).calcular(nrP0, erp, n))},
-		{make_pair("\nNewton-Raphson desde p0=" + to_string(nrP1), newton_raphson(fstr, dfstr).calcular(nrP1, erp, n))},
-		{make_pair("\nNewton-Raphson desde p0=" + to_string(nrP2), newton_raphson(fstr, dfstr).calcular(nrP2, erp, n))},
-		{make_pair("\nNewton-Raphson desde p0=" + to_string(nrP3), newton_raphson(fstr, dfstr).calcular(nrP3, erp, n))},
+		{make_pair("\nNewton-Raphson desde p0= " + to_string(nrP0), newton_raphson(fstr, dfstr).calcular(nrP0, erp, n))},
+		{make_pair("\nNewton-Raphson desde p0= " + to_string(nrP1), newton_raphson(fstr, dfstr).calcular(nrP1, erp, n))},
+		{make_pair("\nNewton-Raphson desde p0= " + to_string(nrP2), newton_raphson(fstr, dfstr).calcular(nrP2, erp, n))},
+		{make_pair("\nNewton-Raphson desde p0= " + to_string(nrP3), newton_raphson(fstr, dfstr).calcular(nrP3, erp, n))},
 
-		{make_pair("\nNewton-Raphson generalizado desde p0=" + to_string(nrgP0), newton_generalizado(fstr, dfstr, d2fstr).calcular(nrgP0, erp, n))},
-		{make_pair("\nNewton-Raphson generalizado desde p0=" + to_string(nrgP1), newton_generalizado(fstr, dfstr, d2fstr).calcular(nrgP1, erp, n))},
-		{make_pair("\nNewton-Raphson generalizado desde p0=" + to_string(nrgP2), newton_generalizado(fstr, dfstr, d2fstr).calcular(nrgP2, erp, n))},
-		{make_pair("\nNewton-Raphson generalizado desde p0=" + to_string(nrgP3), newton_generalizado(fstr, dfstr, d2fstr).calcular(nrgP3, erp, n))},
+		{make_pair("\nNewton-Raphson generalizado desde p0= " + to_string(nrgP0), newton_generalizado(fstr, dfstr, d2fstr).calcular(nrgP0, erp, n))},
+		{make_pair("\nNewton-Raphson generalizado desde p0= " + to_string(nrgP1), newton_generalizado(fstr, dfstr, d2fstr).calcular(nrgP1, erp, n))},
+		{make_pair("\nNewton-Raphson generalizado desde p0= " + to_string(nrgP2), newton_generalizado(fstr, dfstr, d2fstr).calcular(nrgP2, erp, n))},
+		{make_pair("\nNewton-Raphson generalizado desde p0= " + to_string(nrgP3), newton_generalizado(fstr, dfstr, d2fstr).calcular(nrgP3, erp, n))},
 
-		{make_pair("\nMuller con x0=" + to_string(m1_x0) + ", x1=" + to_string(m1_x1) + ", x2=" + to_string(m1_x2), muller(fstr).calcular(m1_x0, m1_x1, m1_x2, erp, n))},
-		{make_pair("\nMuller con x0=" + to_string(m2_x0) + ", x1=" + to_string(m2_x1) + ", x2=" + to_string(m2_x2), muller(fstr).calcular(m2_x0, m2_x1, m2_x2, erp, n))},
-		{make_pair("\nMuller con x0=" + to_string(m3_x0) + ", x1=" + to_string(m3_x1) + ", x2=" + to_string(m3_x2), muller(fstr).calcular(m3_x0, m3_x1, m3_x2, erp, n))},
-		{make_pair("\nMuller con x0=" + to_string(m4_x0) + ", x1=" + to_string(m4_x1) + ", x2=" + to_string(m4_x2), muller(fstr).calcular(m4_x0, m4_x1, m4_x2, erp, n))},
+		{make_pair("\nMuller con p0= " + to_string(m1_x0) + ", p1=" + to_string(m1_x1) + ", p2=" + to_string(m1_x2), muller(fstr).calcular(m1_x0, m1_x1, m1_x2, erp, n))},
+		{make_pair("\nMuller con p0= " + to_string(m2_x0) + ", p1=" + to_string(m2_x1) + ", p2=" + to_string(m2_x2), muller(fstr).calcular(m2_x0, m2_x1, m2_x2, erp, n))},
+		{make_pair("\nMuller con p0= " + to_string(m3_x0) + ", p1=" + to_string(m3_x1) + ", p2=" + to_string(m3_x2), muller(fstr).calcular(m3_x0, m3_x1, m3_x2, erp, n))},
+		{make_pair("\nMuller con p0= " + to_string(m4_x0) + ", p1=" + to_string(m4_x1) + ", p2=" + to_string(m4_x2), muller(fstr).calcular(m4_x0, m4_x1, m4_x2, erp, n))},
 	};
 	imprimir_aproximaciones(soluciones, fstr);
 }
 
 void imprimir_aproximaciones(vector<pair<string, solucion>> soluciones, string funcstr)
 {
-	cout << "\nAproximaciones para la función: " << funcstr << endl;
+	cout << "\nAproximaciones para la funcion: " << funcstr << endl;
 
 	for (auto &sol : soluciones)
 	{
