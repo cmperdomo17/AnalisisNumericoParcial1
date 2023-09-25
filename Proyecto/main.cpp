@@ -1,3 +1,11 @@
+
+/**
+ * @file main.cpp
+ * Numerical Methods to find roots of functions
+ * Methods implemented: Bisection, Regula Falsi, Secant, Newton-Raphson, Generalized Newton-Raphson, Muller
+ * @authors Carlos Mario Perdomo Ramos <cmperdomo@unicauca.edu.co> - Daniel Fernando Solarte Ortega <dfsolarte@unicauca.edu.co>
+*/
+
 #include <cmath>
 #include <iostream>
 #include "solucion.h"
@@ -30,11 +38,16 @@ using raices::solucion;
 
 void ejercicio_2();
 void ejercicio_1();
-void imprimir_aproximaciones(vector<pair<string, solucion>> soluciones, string funcstr);
+void mostrar_aproximaciones(vector<pair<string, solucion>> soluciones, string funcstr);
 void metodo_biseccion(string fstr);
 void metodo_reglaFalsa(string fstr);
 void metodo_secante(string fstr);
 
+/**
+ * @brief Main function
+ * @details Main function to run the program
+ * @return 0 
+*/
 int main()
 {
     int opcion;
@@ -69,10 +82,14 @@ int main()
     return 0;
 }
 
+/**
+ * @brief Ejercicio 1
+ * @return void
+*/
 void ejercicio_1()
 {
     int metodo;
-    
+	
 	string constante = "(sqrt(5)/sqrt(2))";
 	string numerador = "((x*(10+x))^5)^(1.0/3.0)";
 	string denominador = "((10 + 2*x*sqrt(2))^2)^(1.0/3.0)";
@@ -108,6 +125,10 @@ void ejercicio_1()
     }
 }
 
+/**
+ * @brief Ejercicio 2
+ * @return void
+*/
 void ejercicio_2()
 {
 	string fstr("x^8 - x^7 + 35x^5 + 426x^4 - 170x^3 - 1827x^2 - 255x"); // Funcion
@@ -118,7 +139,9 @@ void ejercicio_2()
 	double n;
 	n = 10;
 
-	// Newton
+	// Puntos iniciales para cada método
+
+	// Método de Newton Raphson
 
 	// Raíz 1 = -1.90012
 	double nrP0 = -1.9f;  
@@ -129,7 +152,7 @@ void ejercicio_2()
 	// Raíz 4 = 0
 	double nrP3 = 0.0f;
 
-	// Newton generalizado
+	// Método de Newton Generalizado
 
 	// Raíz 1 = -1.900
 	double nrgP0 = -1.9f;  
@@ -162,6 +185,7 @@ void ejercicio_2()
 	double m4_x1 = 0.0;     // Punto medio
 	double m4_x2 = -0.1;    // Punto más alejado
 
+	// Vector de soluciones para cada método
 	vector<pair<string, solucion>> soluciones = {
 		{make_pair("\nNewton-Raphson desde p0= " + to_string(nrP0), newton_raphson(fstr, dfstr).calcular(nrP0, erp, n))},
 		{make_pair("\nNewton-Raphson desde p0= " + to_string(nrP1), newton_raphson(fstr, dfstr).calcular(nrP1, erp, n))},
@@ -178,13 +202,21 @@ void ejercicio_2()
 		{make_pair("\nMuller con p0= " + to_string(m3_x0) + ", p1=" + to_string(m3_x1) + ", p2=" + to_string(m3_x2), muller(fstr).calcular(m3_x0, m3_x1, m3_x2, erp, n))},
 		{make_pair("\nMuller con p0= " + to_string(m4_x0) + ", p1=" + to_string(m4_x1) + ", p2=" + to_string(m4_x2), muller(fstr).calcular(m4_x0, m4_x1, m4_x2, erp, n))},
 	};
-	imprimir_aproximaciones(soluciones, fstr);
+	// Muestra las aproximaciones de cada método
+	mostrar_aproximaciones(soluciones, fstr);
 }
 
-void imprimir_aproximaciones(vector<pair<string, solucion>> soluciones, string funcstr)
+/**
+ * @brief Impresión de las aproximaciones de cada método
+ * @param soluciones Vector de soluciones
+ * @param funcstr Función
+ * @return void
+*/
+void mostrar_aproximaciones(vector<pair<string, solucion>> soluciones, string funcstr)
 {
 	cout << "\nAproximaciones para la funcion: " << funcstr << endl;
 
+	// Recorre el vector de soluciones e imprime cada una
 	for (auto &sol : soluciones)
 	{
 		cout << "\nRaiz de: " << funcstr << " \nMetodo utilizado: " << sol.first << endl;
@@ -194,6 +226,11 @@ void imprimir_aproximaciones(vector<pair<string, solucion>> soluciones, string f
 	}
 }
 
+/**
+ * @brief Método de Bisección
+ * @param fstr Función
+ * @return void
+*/
 void metodo_biseccion(string fstr) {
 	
 	double xa, xb;
@@ -220,7 +257,11 @@ void metodo_biseccion(string fstr) {
 	sol.imprimir();
 }
 
-
+/**
+ * @brief Método de Regla Falsa
+ * @param fstr Función
+ * @return void
+*/
 void metodo_reglaFalsa(string fstr) {
 	
 	double xi, xs;
@@ -248,6 +289,11 @@ void metodo_reglaFalsa(string fstr) {
 	
 }
 
+/**
+ * @brief Método de la Secante
+ * @param fstr Función
+ * @return void
+*/
 void metodo_secante(string fstr){
 	double x0, x1;
 	int n;
